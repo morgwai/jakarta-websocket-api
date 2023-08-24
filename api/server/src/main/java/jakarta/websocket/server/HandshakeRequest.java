@@ -88,6 +88,16 @@ public interface HandshakeRequest {
     Object getHttpSession();
 
     /**
+     * Return a reference to the wrapped HttpServletRequest if the implementation is part of a Java EE web container.
+     *
+     * @return the HTTPServletRequest or {@code null} if the websocket implementation is not part of a Java EE web
+     *         container.
+     */
+    default Object getHttpServletRequest() {
+        return null;
+    }
+
+     /**
      * Return the request parameters associated with the request.
      *
      * @return the unmodifiable map of the request parameters.
